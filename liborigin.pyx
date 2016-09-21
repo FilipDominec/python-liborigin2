@@ -848,9 +848,10 @@ cdef void cProgressCallback(double progress, void *user_data):
 
 cdef void tell(int &objCount, int &objHandled, void *callback):
         cython.operator.preincrement(objHandled)
-        if callback != NULL:
-            pyCallback = <object>callback
-            pyCallback(0.9 + 0.1 * (objHandled / float(objCount)))
+        print "TELL"
+        #if callback != NULL and (<object>callback is not None):
+            #pyCallback = <object>callback
+            #pyCallback(0.9 + 0.1 * (objHandled / float(objCount)))
 
 cdef getNodes(OriginFile *originFile, pyCallback):
     
